@@ -27,6 +27,7 @@ resultsDatabaseSchema <-""
 
 connection = connect(connectionDetails)
 
+source("~/pregnancyAlgorithm/R/main.R")
 PregnancyAlgorithm::clean (connectionDetails, resultsDatabaseSchema)
 PregnancyAlgorithm::init (connectionDetails, resultsDatabaseSchema)
 PregnancyAlgorithm::execute (connectionDetails, cdmDatabaseSchema, resultsDatabaseSchema)
