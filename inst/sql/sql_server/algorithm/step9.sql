@@ -341,8 +341,8 @@ JOIN @cdmDatabaseSchema.OBSERVATION_PERIOD op on op.PERSON_ID = pe.PERSON_ID
 	and pe.EPISODE_START_DATE>= op.observation_period_start_date
 	join @cdmDatabaseSchema.person p
 	on pe.person_id=p.person_id
-	where year(pe.episode_start_date)-p.year_of_birth>=1
-	and year(pe.episode_start_date)-p.year_of_birth<=100
+	where year(pe.episode_start_date)-p.year_of_birth>=2
+	and year(pe.episode_start_date)-p.year_of_birth<=55
 ;
 
 /* verify that there are at least 2 pregnancy events for an outcome */
@@ -366,7 +366,7 @@ join
 		) c
 		group by person_id, rn
 	) d
-	where tot_events>=1
+	where tot_events>=2
 ) e on e.person_id=f.person_id and e.rn=f.rn
 ;
 
